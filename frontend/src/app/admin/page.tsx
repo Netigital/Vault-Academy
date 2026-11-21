@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuth } from "../components/AuthContext";
+import { getBackendBase } from "../../lib/api";
 
 interface UserRow {
   id: number;
@@ -34,11 +35,6 @@ export default function AdminPage() {
   const [overview, setOverview] = useState<Overview | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-  const getBackendBase = () =>
-    typeof window !== "undefined"
-      ? `${window.location.protocol}//${window.location.hostname}:3001`
-      : "http://localhost:3001";
 
   useEffect(() => {
     if (user?.role !== "teacher" || !sessionToken) {

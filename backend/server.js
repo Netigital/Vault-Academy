@@ -31,6 +31,11 @@ function getLocalIpAddresses() {
   return addresses;
 }
 
+const configuredFrontendHost = process.env.FRONTEND_HOST?.trim();
+const frontendOrigin = configuredFrontendHost
+  ? new URL(configuredFrontendHost.includes('://') ? configuredFrontendHost : `https://${configuredFrontendHost}`).origin
+  : null;
+
 function allowFrontendOrigin(origin, callback) {
   if (!origin) return callback(null, true);
 
@@ -43,9 +48,9 @@ function allowFrontendOrigin(origin, callback) {
 
   const localHost = ['localhost', '127.0.0.1', '[::1]'].includes(parsedOrigin.hostname);
   const localIp = getLocalIpAddresses().some(({ address }) => address === parsedOrigin.hostname);
-  const allowed = parsedOrigin.protocol === 'http:' &&
+  const allowed = parsedOrigin.origin === frontendOrigin || (parsedOrigin.protocol === 'http:' &&
     parsedOrigin.port === '5050' &&
-    (localHost || localIp);
+    (localHost || localIp));
   callback(null, allowed);
 }
 
@@ -135,7 +140,7 @@ app.use((req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3001;
-const resourcesFolder = path.join(__dirname, 'resources_folder');
+const resourcesFolder = path.resolve(process.env.VAULT_ACADEMY_DATA_DIR || __dirname, 'resources_folder');
 const allowedGradeLevels = new Set(['All Grades', 'JSS1', 'JSS2', 'JSS3', 'Inter-Class']);
 
 function safeResourceDirectory(grade, department) {

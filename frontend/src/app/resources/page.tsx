@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "../components/AuthContext";
+import { getBackendBase } from "../../lib/api";
 
 interface Resource {
   id: number;
@@ -60,12 +61,6 @@ export default function ResourcesPage() {
   const [uploading, setUploading] = useState(false);
   const [uploadStatus, setUploadStatus] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
-  const getBackendBase = () => {
-    if (typeof window !== "undefined") {
-      return `${window.location.protocol}//${window.location.hostname}:3001`;
-    }
-    return "http://localhost:3001";
-  };
   const BACKEND_BASE = getBackendBase();
 
   const fetchMeta = useCallback(() => {

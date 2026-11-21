@@ -3,7 +3,7 @@ const path = require('path');
 const chokidar = require('chokidar');
 const db = require('./database');
 
-const resourcesDir = path.join(__dirname, 'resources_folder');
+const resourcesDir = path.resolve(process.env.VAULT_ACADEMY_DATA_DIR || __dirname, 'resources_folder');
 
 // Ensure the directory exists
 if (!fs.existsSync(resourcesDir)) {

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { io, Socket } from "socket.io-client";
 import { useAuth } from "../components/AuthContext";
+import { getBackendBase } from "../../lib/api";
 
 /* ─── Types ─── */
 interface ArenaQuestion {
@@ -50,12 +51,6 @@ interface AnswerFeedback {
   correct_option?: string;
   explanation: string;
 }
-
-/* ─── Backend URL helper ─── */
-const getBackendBase = () =>
-  typeof window !== "undefined"
-    ? `${window.location.protocol}//${window.location.hostname}:3001`
-    : "http://localhost:3001";
 
 /* ─── Colour constants ─── */
 const ARENA_ACCENT = "var(--primary)";

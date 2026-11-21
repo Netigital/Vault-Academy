@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../components/AuthContext";
+import { getBackendBase } from "../../lib/api";
 
 interface Message {
   id: string;
@@ -51,13 +52,6 @@ export default function StudyAgentPage() {
   const [showSetupModal, setShowSetupModal] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
-
-  const getBackendBase = () => {
-    if (typeof window !== "undefined") {
-      return `${window.location.protocol}//${window.location.hostname}:3001`;
-    }
-    return "http://localhost:3001";
-  };
 
   const checkStatus = async () => {
     try {
