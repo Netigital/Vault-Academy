@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T09:30:34Z",
+  "title": "Design System: Vault Academy",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Cobalt Primary",
+        "canonical": "#1457D9",
+        "tonalRamp": ["#07142F", "#0B1E4B", "#0B3FA8", "#1457D9", "#2387E8", "#84BAFF", "#D8E9FF", "#F5F9FF"]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Cobalt Hover",
+        "canonical": "#0B3FA8",
+        "tonalRamp": ["#07142F", "#0B1E4B", "#102B60", "#0B3FA8", "#1457D9", "#2387E8", "#84BAFF", "#D8E9FF"]
+      },
+      "primary-light": {
+        "role": "primary",
+        "displayName": "Cobalt Wash",
+        "canonical": "#D8E9FF",
+        "tonalRamp": ["#0B1E4B", "#102B60", "#163D78", "#31558B", "#84BAFF", "#B9CDEE", "#D8E9FF", "#F5F9FF"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Construction White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["#07142F", "#0B1E4B", "#385478", "#B9CDEE", "#EAF2FF", "#F5F9FF", "#FFFFFF", "#FFFFFF"]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Ice Field",
+        "canonical": "#F5F9FF",
+        "tonalRamp": ["#07142F", "#0B1E4B", "#385478", "#B9CDEE", "#EAF2FF", "#F5F9FF", "#FFFFFF", "#FFFFFF"]
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Pale Instrument Blue",
+        "canonical": "#EAF2FF",
+        "tonalRamp": ["#07142F", "#0B1E4B", "#385478", "#B9CDEE", "#D8E9FF", "#EAF2FF", "#F5F9FF", "#FFFFFF"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Rule Blue",
+        "canonical": "#B9CDEE",
+        "tonalRamp": ["#07142F", "#0B1E4B", "#385478", "#31558B", "#84BAFF", "#B9CDEE", "#D8E9FF", "#F5F9FF"]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Dark Navy",
+        "canonical": "#0B1E4B",
+        "tonalRamp": ["#07142F", "#0B1E4B", "#102B60", "#163D78", "#31558B", "#385478", "#BED0EA", "#F4F8FF"]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Slate Blue",
+        "canonical": "#385478",
+        "tonalRamp": ["#07142F", "#0B1E4B", "#102B60", "#163D78", "#31558B", "#385478", "#BED0EA", "#F4F8FF"]
+      },
+      "accent-blue": {
+        "role": "secondary",
+        "displayName": "Signal Blue",
+        "canonical": "#2387E8",
+        "tonalRamp": ["#07142F", "#0B1E4B", "#0B3FA8", "#1457D9", "#2387E8", "#55A8FF", "#84BAFF", "#D8E9FF"]
+      },
+      "accent-green": {
+        "role": "secondary",
+        "displayName": "Local Green",
+        "canonical": "#08734D",
+        "tonalRamp": ["#073B2D", "#08734D", "#16A34A", "#63D2A0", "#A7E6C9", "#DDF7EC", "#F5FFFA", "#FFFFFF"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Monumental Instrument",
+        "purpose": "Home wordmark and first-viewport identity."
+      },
+      "headline": {
+        "displayName": "Instrument Headline",
+        "purpose": "Section and page headings."
+      },
+      "body": {
+        "displayName": "Operational Body",
+        "purpose": "Direct descriptions and task guidance."
+      },
+      "label": {
+        "displayName": "Grid Label",
+        "purpose": "Uppercase status, action, filter, and metadata labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "none",
+        "value": "none",
+        "purpose": "Ordinary content, directory, navigation, and library surfaces remain flat."
+      },
+      {
+        "name": "overlay-only",
+        "value": "0 20px 60px rgba(7, 20, 47, 0.30)",
+        "purpose": "Transient modal and privacy/tour overlays only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "instrument-state",
+        "value": "140ms ease",
+        "purpose": "Navigation, row reversal, and local state changes."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-directory",
+        "value": "900px"
+      },
+      {
+        "name": "mobile",
+        "value": "768px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The direct cobalt action used to advance a task.",
+      "html": "<button class=\"ds-btn-primary\">Start exam <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:.35rem; background:#1457D9; color:#FFFFFF; border:1px solid #1457D9; border-radius:2px; padding:.65rem 1rem; font-family:'Bahnschrift','DIN Alternate','Aptos','Arial Narrow',sans-serif; font-size:.72rem; line-height:1.2; font-weight:800; letter-spacing:.06em; text-transform:uppercase; transition:background-color 140ms ease; }.ds-btn-primary:hover { background:#0B3FA8; }.ds-btn-primary:focus-visible { outline:3px solid #2387E8; outline-offset:3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "A restrained secondary action with a blue rule.",
+      "html": "<button class=\"ds-btn-ghost\">Rankings</button>",
+      "css": ".ds-btn-ghost { background:#FFFFFF; color:#1457D9; border:1px solid #B9CDEE; border-radius:2px; padding:.55rem .85rem; font-family:'Bahnschrift','DIN Alternate','Aptos','Arial Narrow',sans-serif; font-size:.72rem; line-height:1.2; font-weight:800; letter-spacing:.06em; text-transform:uppercase; transition:background-color 140ms ease,color 140ms ease; }.ds-btn-ghost:hover { background:#D8E9FF; }.ds-btn-ghost:focus-visible { outline:3px solid #2387E8; outline-offset:3px; }"
+    },
+    {
+      "name": "Home Directory Row",
+      "kind": "custom",
+      "refersTo": "index-row",
+      "description": "The signature indexed row on the Vault Academy home console.",
+      "html": "<a class=\"ds-index-row\" href=\"#\"><span class=\"ds-index-code\">01</span><strong>Learning Library</strong><span class=\"ds-index-action\">Open the library →</span></a>",
+      "css": ".ds-index-row { display:grid; grid-template-columns:90px minmax(170px,.75fr) 150px; align-items:center; gap:1rem; min-height:84px; padding:.8rem .65rem; border-bottom:1px solid #B9CDEE; background:#FFFFFF; color:#0B1E4B; text-decoration:none; font-family:'Bahnschrift','DIN Alternate','Aptos','Arial Narrow',sans-serif; transition:background-color 140ms ease,color 140ms ease; }.ds-index-code { color:#1457D9; font-size:2.1rem; font-weight:900; letter-spacing:-.08em; }.ds-index-row strong { font-size:clamp(1.3rem,2.2vw,2rem); font-weight:850; letter-spacing:-.055em; }.ds-index-action { justify-self:end; color:#1457D9; font-size:.78rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }.ds-index-row:hover { background:#1457D9; color:#FFFFFF; }.ds-index-row:hover .ds-index-code,.ds-index-row:hover .ds-index-action { color:#FFFFFF; }.ds-index-row:focus-visible { outline:3px solid #2387E8; outline-offset:3px; }"
+    },
+    {
+      "name": "Library Resource Row",
+      "kind": "card",
+      "refersTo": "index-row",
+      "description": "A square, rule-separated library record for files and catalog actions.",
+      "html": "<article class=\"ds-resource-row\"><div><div class=\"ds-resource-meta\">GENERAL RESOURCE · SS3</div><h3>Solubility Rules - Formula Sheet</h3><p>Formula sheet PDF · 124.5 KB</p></div><div class=\"ds-resource-actions\"><button class=\"ds-btn-ghost\">Preview</button><button class=\"ds-btn-primary\">Download</button></div></article>",
+      "css": ".ds-resource-row { display:grid; grid-template-columns:minmax(0,1fr) minmax(230px,.55fr); align-items:center; gap:1rem; min-height:116px; border-bottom:1px solid #B9CDEE; background:#FFFFFF; color:#0B1E4B; padding:1rem .65rem; font-family:'Bahnschrift','DIN Alternate','Aptos','Arial Narrow',sans-serif; }.ds-resource-meta { color:#1457D9; font-size:.66rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }.ds-resource-row h3 { margin:.35rem 0 .25rem; font-size:1rem; }.ds-resource-row p { margin:0; color:#385478; font-size:.82rem; }.ds-resource-actions { display:flex; justify-content:flex-end; gap:.5rem; }.ds-btn-primary { display:inline-flex; align-items:center; justify-content:center; background:#1457D9; color:#FFFFFF; border:1px solid #1457D9; border-radius:2px; padding:.55rem .85rem; font-family:inherit; font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }.ds-btn-ghost { background:#FFFFFF; color:#1457D9; border:1px solid #B9CDEE; border-radius:2px; padding:.55rem .85rem; font-family:inherit; font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }.ds-resource-actions button:focus-visible { outline:3px solid #2387E8; outline-offset:3px; }"
+    },
+    {
+      "name": "Navigation Rail",
+      "kind": "nav",
+      "refersTo": "navigation-rail",
+      "description": "Dark-blue school navigation with a precise active rule.",
+      "html": "<aside class=\"ds-nav\"><div class=\"ds-brand\"><span class=\"ds-brand-mark\">VA</span><strong>Vault Academy</strong></div><nav><a class=\"ds-nav-active\" href=\"#\">Home</a><a href=\"#\">Library</a><a href=\"#\">CBT Exams</a><a href=\"#\">Math Arena</a></nav></aside>",
+      "css": ".ds-nav { width:252px; min-height:360px; background:#0B1E4B; color:#F4F8FF; padding:1.5rem 1.25rem; font-family:'Bahnschrift','DIN Alternate','Aptos','Arial Narrow',sans-serif; }.ds-brand { display:flex; align-items:center; gap:.6rem; }.ds-brand-mark { display:grid; width:42px; height:42px; place-items:center; background:linear-gradient(90deg,transparent 49%,rgba(255,255,255,.35) 49%,rgba(255,255,255,.35) 51%,transparent 51%),linear-gradient(transparent 49%,rgba(255,255,255,.35) 49%,rgba(255,255,255,.35) 51%,transparent 51%),#1457D9; color:#FFFFFF; font-weight:900; }.ds-nav nav { display:flex; flex-direction:column; gap:.2rem; margin-top:1.5rem; }.ds-nav nav a { padding:.65rem .875rem; border-radius:0; border-left:3px solid transparent; color:#BED0EA; text-decoration:none; }.ds-nav nav a.ds-nav-active { background:#163D78; border-left:4px solid #84BAFF; color:#FFFFFF; font-weight:700; }.ds-nav nav a:focus-visible { outline:3px solid #55A8FF; outline-offset:3px; }"
+    },
+    {
+      "name": "LAN Access Panel",
+      "kind": "custom",
+      "refersTo": "lan-panel",
+      "description": "A full-width cobalt broadcast block for sharing the local server address.",
+      "html": "<section class=\"ds-lan\"><div><h2>Connect another device</h2><p>Open this address on the same Wi-Fi network.</p><a href=\"#\">http://192.168.0.1:5050</a></div><button class=\"ds-lan-copy\">Copy server address</button></section>",
+      "css": ".ds-lan { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:1.5rem; margin-top:1.25rem; padding:clamp(1rem,2vw,1.4rem); color:#FFFFFF; background:#1457D9; border:1px solid #0B3FA8; font-family:'Bahnschrift','DIN Alternate','Aptos','Arial Narrow',sans-serif; }.ds-lan h2 { margin:0 0 .4rem; font-size:1.25rem; }.ds-lan p { margin:0; color:#E5F0FF; }.ds-lan a { display:inline-block; margin-top:.6rem; color:#FFFFFF; font-family:'Courier New',monospace; font-size:1.3rem; font-weight:700; text-underline-offset:4px; }.ds-lan-copy { min-height:46px; padding:.7rem 1rem; border:1px solid #FFFFFF; border-radius:0; background:#FFFFFF; color:#0B1E4B; font-family:inherit; font-size:.82rem; font-weight:800; }.ds-lan-copy:hover { background:#D8E9FF; }.ds-lan-copy:focus-visible { outline:3px solid #55A8FF; outline-offset:3px; }"
+    },
+    {
+      "name": "Arena Join Instrument",
+      "kind": "custom",
+      "refersTo": "arena-join",
+      "description": "The compact white join form used by the blue Math Arena.",
+      "html": "<section class=\"ds-arena\"><div class=\"ds-arena-mark\">ϟ</div><h2>Join the Arena</h2><label>Your Name<input value=\"e.g. Amara\"></label><label>Your Class<select><option>JSS1</option></select></label><button class=\"ds-btn-primary\">Join Arena</button><p>Waiting for the teacher to start the match.</p></section>",
+      "css": ".ds-arena { max-width:420px; border:1px solid #B9CDEE; background:#FFFFFF; padding:2rem 1.5rem; text-align:center; font-family:'Bahnschrift','DIN Alternate','Aptos','Arial Narrow',sans-serif; }.ds-arena-mark { color:#2387E8; font-size:2.2rem; }.ds-arena h2 { margin:.35rem 0 1.1rem; }.ds-arena label { display:block; margin:.75rem 0; color:#385478; font-size:.72rem; font-weight:800; }.ds-arena input,.ds-arena select { width:100%; min-height:44px; margin-top:.35rem; border:1px solid #B9CDEE; border-radius:2px; background:#FFFFFF; color:#0B1E4B; padding:.55rem .8rem; font-family:inherit; }.ds-arena button { width:100%; margin-top:.35rem; }.ds-arena p { color:#385478; font-size:.72rem; }.ds-arena input:focus-visible,.ds-arena select:focus-visible,.ds-arena button:focus-visible { outline:3px solid #2387E8; outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Blue Grid Instrument",
+    "overview": "Vault Academy is a precise offline learning instrument, not a generic education app. White and pale-blue fields hold a visible construction grid; cobalt typography and rules turn resources, exams, and competition into a direct operational index. The system feels institutional and modular: Wim Crouwel-influenced specimen structure, compact labels, strong numeric markers, and information arranged for fast school-network use.\n\nThe identity is built around the first viewport. The wordmark leads, LAN state establishes that the system is local and live, and the three indexed learning tools remain immediately recognizable on desktop and mobile.",
+    "keyCharacteristics": [
+      "Visible 32px construction-cell grids behind mastheads and large surfaces",
+      "Cobalt text, blue rules, pale-blue fields, and white document surfaces",
+      "Rule-defined directory rows rather than floating promotional cards",
+      "Modular, uppercase, tightly tracked labels and monumental condensed headings",
+      "A dark-blue instrument rail on desktop and a compact labeled bottom rail on mobile"
+    ],
+    "rules": [
+      {
+        "name": "The Blue Instrument Rule",
+        "body": "Blue is for structure and action, not decorative atmosphere. Keep white surfaces dominant and use Cobalt Primary where it identifies the system or advances a task.",
+        "section": "colors"
+      },
+      {
+        "name": "The Local State Rule",
+        "body": "Server availability belongs in a direct status block. Never imply cloud or internet dependence in the first viewport.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Voice Rule",
+        "body": "Intermixing rounded marketing typography or playful display treatments breaks the instrument character. Use the same narrow technical voice across headings and labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Field Rule",
+        "body": "Do not add drop shadows to turn grid-aligned surfaces into cards. State and hierarchy are communicated with 1px rules, pale fills, and cobalt reversals.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Visible Rule",
+        "body": "Borders and rules remain crisp. Page-level shadows are reserved for transient overlays only.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Keep the school learning network visually exact, compact, and operational.",
+      "Let visible construction-grid cells align with type baselines and module boundaries.",
+      "Preserve the wordmark, LAN status, indexed three-row directory, counts, and shareable LAN URL in the home first viewport.",
+      "Use square rule-separated library rows and precise blue borders.",
+      "Use small uppercase labels and large modular numbers to create hierarchy.",
+      "Preserve the active page in both desktop and mobile navigation.",
+      "Preserve PDF attribution and original publisher identity for third-party resources."
+    ],
+    "donts": [
+      "Don't use generic app cards, rounded marketing tiles, or decorative gradients.",
+      "Don't replace the 32px construction grid with arbitrary spacing or off-grid mastheads.",
+      "Don't shift to a red, warm, or multicolor dominant palette.",
+      "Don't imply internet access or hide LAN/server state.",
+      "Don't add diffuse shadows or elevated surfaces to ordinary directory modules.",
+      "Don't rebrand or strip attribution from third-party PDF materials."
+    ]
+  }
+}

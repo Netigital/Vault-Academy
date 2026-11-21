@@ -1,0 +1,46 @@
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Next.js build output
+.next/
+**/.next/
+out/
+build/
+dist/
+
+# SQLite journals & temporary files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Environment & local credentials
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Local database content and user-uploaded learning materials
+backend/resources_folder/
+
+# Local Impeccable hook state and generated review artifacts
+**/.impeccable/hook.cache.json
+**/.impeccable/questions/
+**/.impeccable/reviews/
+**/.impeccable/sketches/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
