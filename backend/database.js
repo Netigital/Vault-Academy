@@ -1,8 +1,10 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const fs = require('fs');
 
-// This creates a file called vault-academy.db in the backend folder
-const dbPath = path.resolve(__dirname, 'vault-academy.db');
+const dataFolder = path.resolve(process.env.VAULT_ACADEMY_DATA_DIR || __dirname);
+fs.mkdirSync(dataFolder, { recursive: true });
+const dbPath = path.join(dataFolder, 'vault-academy.db');
 
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {

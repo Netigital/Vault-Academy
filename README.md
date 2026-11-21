@@ -2,6 +2,12 @@
 
 Vault Academy is an offline-first learning app based on Next.js, Express, SQLite, and Socket.IO. It includes a searchable library of local learning materials, timed CBT exams, and a real-time Math Arena.
 
+## Deploy online with Render
+
+GitHub Pages can only serve static files, so it cannot run this app's Next.js server or Express/SQLite backend. To deploy the full app, create a Blueprint in Render from this repository and use `render.yaml`. The Blueprint creates the frontend and API services; set private values for `VAULT_ACADEMY_ADMIN_PASSCODE` and `VAULT_ACADEMY_TEACHER_INVITE` on the API service in Render.
+
+The backend uses a 1 GB persistent disk for its SQLite database and uploaded learning materials. Render requires a paid web-service plan for persistent disks. The frontend is served at `https://vault-academy-web.onrender.com`; the GitHub Pages root `index.html` redirects there. If Render assigns a different service URL, update that redirect and redeploy GitHub Pages.
+
 ## Run on Windows
 
 1. Install Node.js LTS (which includes npm).

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { getBackendBase } from "../lib/api";
 
 interface NetworkInfo {
   primaryIp: string;
@@ -43,11 +44,7 @@ export default function Home() {
   const [copyError, setCopyError] = useState("");
   const [serverOnline, setServerOnline] = useState(false);
   const [stats, setStats] = useState<DashboardStats | null>(null);
-
-  const getBackendBase = () =>
-    typeof window !== "undefined"
-      ? `${window.location.protocol}//${window.location.hostname}:3001`
-      : "http://localhost:3001";
+  const isHostedApp = Boolean(process.env.NEXT_PUBLIC_API_URL);
 
   useEffect(() => {
     fetch(`${getBackendBase()}/api/network-info`)
@@ -84,7 +81,9 @@ export default function Home() {
   const hostIp =
     networkInfo?.primaryIp ||
     (typeof window !== "undefined" ? window.location.hostname : "localhost");
-  const vaultUrl = `http://${hostIp}:5050`;
+  const vaultUrl = process.env.NEXT_PUBLIC_API_URL
+    ? (typeof window !== "undefined" ? window.location.origin : "")
+    : `http://${hostIp}:5050`;
 
   const copyAddress = async () => {
     setCopyError("");
@@ -126,12 +125,14 @@ export default function Home() {
           </p>
         </div>
         <div className="home-status" role="status" aria-live="polite">
-          <span className="home-status-label">Local server</span>
+          <span className="home-status-label">{isHostedApp ? "Application server" : "Local server"}</span>
           <strong style={{ color: serverOnline ? "var(--accent-green)" : "var(--text-muted)" }}>
             {serverOnline ? "● Online" : "● Check connection"}
           </strong>
           <span style={{ color: "var(--text-muted)", fontSize: ".76rem" }}>
-            {serverOnline ? "Available on this Wi-Fi" : "Waiting for backend"}
+            {serverOnline
+              ? isHostedApp ? "Available online" : "Available on this Wi-Fi"
+              : "Waiting for backend"}
           </span>
         </div>
       </header>
@@ -168,8 +169,12 @@ export default function Home() {
 
       <section className="home-network" aria-labelledby="home-network-title">
         <div>
-          <h2 id="home-network-title">Connect another device</h2>
-          <p>Open this address on a device connected to the same Wi-Fi network.</p>
+          <h2 id="home-network-title">{isHostedApp ? "Share Vault Academy" : "Connect another device"}</h2>
+          <p>
+            {isHostedApp
+              ? "Open this address on any internet-connected device."
+              : "Open this address on a device connected to the same Wi-Fi network."}
+          </p>
           <a className="home-network-address" href={vaultUrl}>{vaultUrl}</a>
           {copyError && <p role="status">{copyError}</p>}
         </div>

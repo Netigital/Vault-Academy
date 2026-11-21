@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { getBackendBase } from "../../lib/api";
 
 export type UserRole = "student" | "teacher";
 
@@ -68,10 +69,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = () => {
     const token = localStorage.getItem("vault_academy_session");
     if (token) {
-      const base = typeof window !== "undefined"
-        ? `${window.location.protocol}//${window.location.hostname}:3001`
-        : "http://localhost:3001";
-      fetch(`${base}/api/auth/logout`, {
+      fetch(`${getBackendBase()}/api/auth/logout`, {
         method: "POST",
         headers: { "X-Vault-Session": token },
       }).catch(() => {});
